@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>wilberres</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+  <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
+
+</head>
+<body>
+    <script>
+        function changeMainImage(imageSrc) {
+          document.getElementById('mainImage').src = imageSrc;
+        }
+    function addToCart(id, name, price) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      let existingItem = cart.find(item => item.id === id);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ id, name, price, quantity: 1 });
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Товар добавлен в корзину!');
+    }
+      </script>
+      <div id="cart-items"></div>           
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"crossorigin="anonymous"></script>
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(236, 59, 202); height: 116px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="wb.html" style="color: white; margin-left: 20px;"><h1 style="color: white;">wilberres</h1></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" style="margin-left: 20px; background-color: rgb(236, 59, 202); border: none;">
+        <i class="bi bi-list" style="font-size: 3rem; color: white;"></i>
+      </a>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title">Каталог</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+          <a href="wb_ women.html"><button class="btn btn-light w-100 mb-2">Женщинам</button></a>
+          <a href="wb_man.html"><button class="btn btn-light w-100 mb-2">Мужчинам</button></a>
+          <a href="wb_kid.html"><button class="btn btn-light w-100 mb-2">Детям</button></a>
+          <a href="wb_elect.html"><button class="btn btn-light w-100">Электроника</button></a>
+        </div>
+      </div>
+      <form class="d-flex mx-auto" style="flex: 1 1 auto; max-width: 1000px;">
+        <input class="form-control me-2" type="search" placeholder="Найти на wilberres" aria-label="Search" style="font-size: 1.2rem;">
+      </form>
+      <div class="d-flex align-items-center">
+        <a class="nav-link" href="wb_bag.html" style="color: white; text-align: center; margin-right: 20px;">
+          <i class="bi bi-cart-fill" style="font-size: 2rem;"></i><br>
+          <span style="font-size: 0.8rem;">Корзина</span>
+        </a>
+        <a class="nav-link" href="wb_prof.html" style="color: white; text-align: center;">
+          <i class="bi bi-person-fill" style="font-size: 2rem;"></i><br>
+          <span style="font-size: 0.8rem;">Профиль</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+  <main class="container mt-4" style="position: absolute; top: 130px; right: 180px;">
+    <a href="wb_elect.html"><button type="button" class="btn btn-light" style="position: absolute; top: 10px; left: 10px;"><i class="bi bi-arrow-left"></i></button></a>
+    <ul class="nav" style="position: absolute; left: 70px; top: 90%;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="wb.html">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="wb_elect.html">Электроника</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="wb_elect_1.html" tabindex="-1" aria-disabled="true">наушники</a>
+        </li>
+      </ul>
+  </main>
+  <div>
+    <a>
+      <button onclick="changeMainImage('1_1_e.png')">
+        <img src="1_1_e.png" width="150px" style="position: absolute; top: 240px;">
+      </button>
+    </a>
+    <a>
+      <button onclick="changeMainImage('1_2_e.png')">
+        <img src="1_2_e.png" width="150px" style="position: absolute; top:440px; left: 10px;">
+      </button>
+    </a>
+    <a>
+      <button onclick="changeMainImage('1_3_e.png')">
+        <img src="1_3_e.png" width="150px" style="position: absolute; top:640px; left: 10px;">
+      </button>
+    </a>
+    <a>
+      <button onclick="changeMainImage('1_4_e.png')">
+        <img src="1_4_e.png" width="150px" style="position: absolute; top:840px; left: 10px;">
+      </button>
+    </a>
+
+    <img id="mainImage" src="1_1_e.png" width="500px" style="position: absolute; top: 350px; left: 200px;">
+  </div>
+  <h5 style="position: absolute; top: 250px; left: 750px;">Беспроводные наушники для пк с микрофоном, накладные блютуз</h5>
+  <h6 style="position: absolute; top: 280px; left: 750px;"><i class="bi bi-star-fill" style="color: yellow;"></i>4,3<i class="bi bi-dot"></i>Отзовый</h6>
+  <h5 style="position: absolute; top: 350px; left: 750px;">Артикул............................386590186</h5>
+  <button class="btn btn-light" style="position: absolute; top: 400px; left: 750px;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Харетеристики и описание<i class="bi bi-arrow-right-short"></i></button>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Характеристики и описание</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    Сочетание стильного дизайна и передовой аудио технологии в игровых полноразмерных наушниках NP1 для настоящих геймеров и меломанов. Погрузитесь в мир игры с таким большим беспроводным аудиоаксессуаром для компьютерных игр и прогулок!
+
+Объемное 3D звучание с насыщенными басами, шумоподавлением и широким звуковым полем – идеальный вариант для гейминга. Полное погружение в виртуальный мир! Услышьте больше деталей в звуке и улучшите атмосферу с реалистичным Hi-Fi звуковым пространством.
+
+Мощный аккумулятор – наушники не оставят вас посреди игрового процесса. С производительностью до 499 часов без подзарядки. Играйте и слушайте музыку! Совместимы со всеми устройствами – используйте с смартфонами Iphone (IOS) и телефонами на базе Android.
+
+Регулируемое оголовье – крепление для комфортной носки в течение длительного времени. Накладные проводные наушники для айфона и андройд распределяют вес по большей площади головы, снижая давление на одну конкретную точку. Выглядит стильно и современно, отличаясь от более традиционного дизайна аудиоэлектроники.
+
+Светодиодная подсветка с эффектом RGB – элемент настоящих геймерских наушников. Визуальные светящиеся эффекты электроники для пк усилят погружение в игровой процесс, сделав его более захватывающим. Такая аудиотехника подходит для людей, которые ценят эстетику своих устройств, особенно для подростков.
+
+Амбушюры из искусственной кожи с эффектом памяти адаптируются к форме головы и ушей, не давят и не сковывают. Детская шумоподавляющая техника обеспечивает более плотное и равномерное прилегание, снижая давление и дискомфорт. Аксессуар с таким материалом легко мыть влажной тканью, что помогает поддерживать чистоту на рабочем столе с компьютером или ноутбуком.
+
+Вся информация предоставлена продавцом
+  </div>
+    </div>
+    <h3 style="color: red;position: absolute; top: 450px; left: 750px;">4.670 тг</h3>
+    <button type="button" class="btn btn-primary" style="position: absolute; top: 500px; left: 750px;" onclick="addToCart('386590186', 'Беспроводные наушники', 4670)">в корзину</button>      
+</body>
+</html>
+  
